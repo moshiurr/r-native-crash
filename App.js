@@ -28,10 +28,16 @@ export default function App() {
 		console.log("button pressed");
 	};
 
+	//delete task event
+	const deleteTask = id => {
+		console.log("delete", id);
+		setTasks(tasks.filter(task => task.id !== id));
+	};
+
 	return (
 		<View style={styles.container}>
 			<Header header={"Task Tracker"} showForm={openForm} />
-			<Tasks tasks={tasks} />
+			<Tasks tasks={tasks} onDelete={deleteTask} />
 		</View>
 	);
 }
@@ -41,5 +47,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#fff",
 		alignItems: "center",
+		minHeight: 300,
+		margin: 5,
+		borderWidth: 1,
+		borderColor: "steelBlue",
+		borderRadius: 5,
 	},
 });
