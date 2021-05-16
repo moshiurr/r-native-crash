@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 		minHeight: 300,
 		margin: 5,
 		borderWidth: 1,
-		borderColor: "steelBlue",
+		borderColor: "blue",
 		borderRadius: 5,
 	},
 });
