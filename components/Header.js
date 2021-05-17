@@ -5,7 +5,7 @@ const Header = ({ header, showForm }) => {
 	return (
 		<View style={style.header}>
 			<Text style={style.headerSize}>{header}</Text>
-			<Button title="Add" onPress={showForm} color="green" />
+			<Button title="Add" onPress={showForm} color="black" />
 		</View>
 	);
 };

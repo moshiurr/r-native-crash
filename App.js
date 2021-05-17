@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-
+import AddTask from "./components/AddTask";
 export default function App() {
 	const [tasks, setTasks] = useState([
 		{
@@ -21,11 +21,19 @@ export default function App() {
 
 	// const [showForm, setShowForm] = useState(false);
 
-	const [idCounter, setIdCounter] = useState(1);
+	const [idCounter, setIdCounter] = useState(2);
 
 	// open Form event
 	const openForm = () => {
 		console.log("button pressed");
+	};
+
+	//addTask event
+	const addTask = task => {
+		const newTask = { ...task, id: idCounter };
+
+		setIdCounter(idCounter + 1);
+		setTasks([...tasks, newTask]);
 	};
 
 	//delete task event
@@ -37,6 +45,7 @@ export default function App() {
 	return (
 		<View style={styles.container}>
 			<Header header={"Task Tracker"} showForm={openForm} />
+			<AddTask onAdd={addTask} />
 			<Tasks tasks={tasks} onDelete={deleteTask} />
 		</View>
 	);
@@ -48,9 +57,10 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		alignItems: "center",
 		minHeight: 300,
-		margin: 5,
-		borderWidth: 1,
-		borderColor: "blue",
-		borderRadius: 5,
+		marginTop: 20,
+		// margin: 5,
+		// borderWidth: 1,
+		// borderColor: "blue",
+		// borderRadius: 5,
 	},
 });
