@@ -20,35 +20,43 @@ export default function App() {
 		},
 	]);
 
-  const [formOpen, setFormOpen] = useState(false);
+	const [formOpen, setFormOpen] = useState(false);
 
 	const [idCounter, setIdCounter] = useState(2);
 
 	// open Form event
 	const openForm = () => {
 		// console.log("button pressed");
-    setFormOpen(!formOpen);
+		setFormOpen(!formOpen);
 	};
 
-//delete event
-const deleteTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
-}
+	//delete event
+	const deleteTask = id => {
+		setTasks(tasks.filter(task => task.id !== id));
+	};
 
-//addTask
-const addTask = task => {
+	//addTask
+	const addTask = task => {
 		const newTask = { ...task, id: idCounter };
 
 		setIdCounter(idCounter + 1);
 		setTasks([...tasks, newTask]);
 	};
 
-
 	return (
 		<View style={styles.container}>
-			<Header header={"Task Tracker"} showForm={openForm} openform={formOpen} style={styles.header}/>
-      {formOpen && <AddTask onSave={addTask}/>}
-			{tasks.length < 1 ? <Text> No task to track</Text> : <Tasks tasks={tasks} onDelete={deleteTask} />}
+			<Header
+				header={"Task Tracker"}
+				showForm={openForm}
+				openform={formOpen}
+				style={styles.header}
+			/>
+			{formOpen && <AddTask onSave={addTask} />}
+			{tasks.length < 1 ? (
+				<Text> No task to track</Text>
+			) : (
+				<Tasks tasks={tasks} onDelete={deleteTask} />
+			)}
 		</View>
 	);
 }
@@ -57,13 +65,15 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "#fff",
+		marginTop: 100,
+		// justifyContent: "center",
 		// alignItems: "center",
-    // borderColor: "blue",
+		// borderColor: "blue",
 		// borderWidth: 2,
-    paddingLeft: 20,
-    paddingRight: 20,
+		paddingLeft: 20,
+		paddingRight: 20,
 	},
-  header: {
-    marginBottom: 10,
-  }
+	header: {
+		marginBottom: 10,
+	},
 });
