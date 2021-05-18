@@ -21,8 +21,8 @@ const AddTask = ({onSave}) => {
   return (
     <View style={styles.container}> 
       <View>
-        <TextInput placeholder="Task Title" value={title} style={styles.input} onChange={ e => setTitle(e.target.value)}/>
-        <TextInput placeholder="Task Time" value={time} style={styles.input} onChange={ e => setTime(e.target.value)}/>
+        <TextInput placeholder="Task Title" value={title} style={styles.input} onChangeText={ text => setTitle(text)}/>
+        <TextInput placeholder="Task Time" value={time} style={styles.input} onChangeText={ text => setTime(text)}/>
       </View>
       <View>
         <Button title="Save" color="green" onPress={onAdd} />
