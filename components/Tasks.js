@@ -4,7 +4,7 @@ import Task from "./Task";
 
 const Tasks = ({ tasks, onDelete }) => {
 	return (
-		<ScrollView>
+		<ScrollView style={style.container}>
 			{tasks.map(task => (
 				<Task
 					key={task.id}

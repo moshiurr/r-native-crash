@@ -75,5 +75,11 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		marginBottom: 10,
+		minHeight: 300,
+		marginTop: 20,
+		paddingLeft: 20,
+		paddingRight: 20,
+		// borderColor: "blue",
+		// borderWidth: 2,
 	},
 });
