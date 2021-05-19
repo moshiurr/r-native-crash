@@ -20,30 +20,37 @@ export default function App() {
 		},
 	]);
 
-  const [formOpen, setFormOpen] = useState(false);
+	const [formOpen, setFormOpen] = useState(false);
 
 	const [idCounter, setIdCounter] = useState(2);
 
 	// open Form event
 	const openForm = () => {
 		// console.log("button pressed");
-    setFormOpen(!formOpen);
+		setFormOpen(!formOpen);
 	};
 
-//delete event
-const deleteTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
-}
+	//delete event
+	const deleteTask = id => {
+		setTasks(tasks.filter(task => task.id !== id));
+	};
 
+<<<<<<< HEAD
+	//addTask
+	const addTask = task => {
+=======
 	//addTask event
 	const addTask = task => {
 
+>>>>>>> d6c46494d634a42537ccdb5a919c1b1a6752b107
 		const newTask = { ...task, id: idCounter };
 
 		setIdCounter(idCounter + 1);
 		setTasks([...tasks, newTask]);
 	};
 
+<<<<<<< HEAD
+=======
   //delete task event
 	const deleteTask = id => {
 		console.log("delete", id);
@@ -51,11 +58,21 @@ const deleteTask = (id) => {
 	};
 
 
+>>>>>>> d6c46494d634a42537ccdb5a919c1b1a6752b107
 	return (
 		<View style={styles.container}>
-			<Header header={"Task Tracker"} showForm={openForm} openform={formOpen} style={styles.header}/>
-      {formOpen && <AddTask onSave={addTask}/>}
-			{tasks.length < 1 ? <Text> No task to track</Text> : <Tasks tasks={tasks} onDelete={deleteTask} />}
+			<Header
+				header={"Task Tracker"}
+				showForm={openForm}
+				openform={formOpen}
+				style={styles.header}
+			/>
+			{formOpen && <AddTask onSave={addTask} />}
+			{tasks.length < 1 ? (
+				<Text> No task to track</Text>
+			) : (
+				<Tasks tasks={tasks} onDelete={deleteTask} />
+			)}
 		</View>
 	);
 }
@@ -64,9 +81,18 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "#fff",
+		marginTop: 100,
+		// justifyContent: "center",
 		// alignItems: "center",
-    // borderColor: "blue",
+		// borderColor: "blue",
 		// borderWidth: 2,
+<<<<<<< HEAD
+		paddingLeft: 20,
+		paddingRight: 20,
+	},
+	header: {
+		marginBottom: 10,
+=======
     paddingLeft: 20,
     paddingRight: 20,
 		//alignItems: "center",
@@ -77,8 +103,6 @@ const styles = StyleSheet.create({
 		// borderColor: "blue",
 		// borderRadius: 5,
 
+>>>>>>> d6c46494d634a42537ccdb5a919c1b1a6752b107
 	},
-  header: {
-    marginBottom: 10,
-  }
 });
