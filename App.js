@@ -35,14 +35,30 @@ export default function App() {
 		setTasks(tasks.filter(task => task.id !== id));
 	};
 
+<<<<<<< HEAD
 	//addTask
 	const addTask = task => {
+=======
+	//addTask event
+	const addTask = task => {
+
+>>>>>>> d6c46494d634a42537ccdb5a919c1b1a6752b107
 		const newTask = { ...task, id: idCounter };
 
 		setIdCounter(idCounter + 1);
 		setTasks([...tasks, newTask]);
 	};
 
+<<<<<<< HEAD
+=======
+  //delete task event
+	const deleteTask = id => {
+		console.log("delete", id);
+		setTasks(tasks.filter(task => task.id !== id));
+	};
+
+
+>>>>>>> d6c46494d634a42537ccdb5a919c1b1a6752b107
 	return (
 		<View style={styles.container}>
 			<Header
@@ -70,10 +86,23 @@ const styles = StyleSheet.create({
 		// alignItems: "center",
 		// borderColor: "blue",
 		// borderWidth: 2,
+<<<<<<< HEAD
 		paddingLeft: 20,
 		paddingRight: 20,
 	},
 	header: {
 		marginBottom: 10,
+=======
+    paddingLeft: 20,
+    paddingRight: 20,
+		//alignItems: "center",
+		minHeight: 300,
+		marginTop: 20,
+		// margin: 5,
+		// borderWidth: 1,
+		// borderColor: "blue",
+		// borderRadius: 5,
+
+>>>>>>> d6c46494d634a42537ccdb5a919c1b1a6752b107
 	},
 });

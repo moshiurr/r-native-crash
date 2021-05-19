@@ -26,7 +26,7 @@ const style = StyleSheet.create({
     marginBottom: 10,
 	},
 	headerSize: {
-		fontSize: 25,
+		fontSize: 40,
 		fontWeight: "bold",
 	},
 });
