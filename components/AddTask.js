@@ -37,9 +37,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   input: {
-    padding: 5,
-    marginBottom: 10,
-  }
-})
+		height: 40,
+		minWidth: 400,
+		padding: 10,
+		marginBottom: 20,
+	},
+
+	btn: {
+		alignSelf: "stretch",
+	},
+});
+
 
 export default AddTask;

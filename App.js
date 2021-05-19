@@ -35,12 +35,19 @@ const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
 }
 
-//addTask
-const addTask = task => {
+	//addTask event
+	const addTask = task => {
+
 		const newTask = { ...task, id: idCounter };
 
 		setIdCounter(idCounter + 1);
 		setTasks([...tasks, newTask]);
+	};
+
+  //delete task event
+	const deleteTask = id => {
+		console.log("delete", id);
+		setTasks(tasks.filter(task => task.id !== id));
 	};
 
 
@@ -62,6 +69,14 @@ const styles = StyleSheet.create({
 		// borderWidth: 2,
     paddingLeft: 20,
     paddingRight: 20,
+		//alignItems: "center",
+		minHeight: 300,
+		marginTop: 20,
+		// margin: 5,
+		// borderWidth: 1,
+		// borderColor: "blue",
+		// borderRadius: 5,
+
 	},
   header: {
     marginBottom: 10,
