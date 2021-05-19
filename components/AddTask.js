@@ -1,65 +1,42 @@
-import React, { useState } from "react";
-import {
-	View,
-	Text,
-	StyleSheet,
-	TextInput,
-	Button,
-	TouchableOpacity,
-} from "react-native";
+import React, {useState} from 'react';
+import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 
-const AddTask = ({ onAdd }) => {
-	const [title, setTitle] = useState("");
-	const [time, setTime] = useState("");
+const AddTask = ({onSave}) => {
 
-	const onSubmit = e => {
-		e.preventDefault();
+  const [title, setTitle] = useState("");
+  const [time, setTime] = useState("");
 
-		// if (!title || !time) {
-		// 	alert("Please insert valid input");
-		// 	return;
-		// }
+  const onAdd = () => {
 
-		onAdd({ title, time });
+    if (!title || !time) {
+			alert("Please insert valid input");
+			return;
+		}
 
-		setTitle("");
-		setTime("");
-	};
+    onSave({id: 1, title: title, time: time});
+    setTitle("")
+    setTime("")
+  };
 
-	return (
-		<View style={style.container}>
-			<TextInput
-				placeholder="title"
-				style={style.input}
-				onChange={e => {
-					setTitle(e.target.value);
-				}}
-			/>
-			<TextInput
-				placeholder="Time"
-				style={style.input}
-				onChange={e => {
-					setTime(e.target.value);
-				}}
-			/>
-			<View style={style.btn}>
-				<Button title="Save" onPress={onSubmit} color="green" />
-			</View>
-		</View>
-	);
-};
+  return (
+    <View style={styles.container}> 
+      <View>
+        <TextInput placeholder="Task Title" value={title} style={styles.input} onChangeText={ text => setTitle(text)}/>
+        <TextInput placeholder="Task Time" value={time} style={styles.input} onChangeText={ text => setTime(text)}/>
+      </View>
+      <View>
+        <Button title="Save" color="green" onPress={onAdd} />
+      </View>
+    </View>
+  )
+}
 
-const style = StyleSheet.create({
-	container: {
-		// flex: 1,
-		// alignSelf: "stretch",
-		justifyContent: "center",
-		alignItems: "center",
-		borderColor: "red",
-		borderWidth: 2,
-	},
-
-	input: {
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    marginBottom: 10,
+  },
+  input: {
 		height: 40,
 		minWidth: 400,
 		padding: 10,
@@ -70,5 +47,6 @@ const style = StyleSheet.create({
 		alignSelf: "stretch",
 	},
 });
+
 
 export default AddTask;
